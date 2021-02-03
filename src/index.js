@@ -1,12 +1,35 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import { Grid } from '@material-ui/core';
+import Nav from './components/Nav';
+import Home from './components/Home';
+import Favorites from './components/Favorites';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Router>
+      <CssBaseline />
+      <Grid container spacing={5}>
+        <Grid item xs={1}>
+          <Nav />
+        </Grid>
+        <Grid item xs={10}>
+          <Switch>
+            <Redirect exact from="/" to="/home" />
+            <Route path="/home">
+              <Home />
+            </Route>
+            <Route exact path="/favorites">
+              <Favorites />
+            </Route>
+          </Switch>
+        </Grid>
+        <Grid item xs={1} />
+      </Grid>
+    </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );
