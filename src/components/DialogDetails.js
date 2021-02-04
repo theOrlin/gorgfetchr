@@ -37,7 +37,9 @@ function DialogDetails(props) {
         repoUrl: repos[repoIndex].html_url,
         openIssues: repos[repoIndex].open_issues_count,
         forks: repos[repoIndex].forks_count,
-        watchers: repos[repoIndex].watchers_count
+        watchers: repos[repoIndex].watchers_count,
+        dateAdded: Date.now(),
+        orgName
       };
 
       newFavorites.push(objToAdd);
