@@ -27,6 +27,11 @@ function Home(props) {
       <Typography variant="h3" align={'center'}>
         Github organizations
       </Typography>
+      {organizationsList.length === 0 && (
+        <Typography variant="h5" color="textSecondary" align="center">
+          No organizations found
+        </Typography>
+      )}
       {organizationsList.map((org) => (
         <OrgCard key={org.id} avatarSrc={org.avatar_url} orgDescription={org.description} orgName={org.login} />
       ))}

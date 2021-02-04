@@ -11,7 +11,7 @@ function RepoCard(props) {
 
   return (
     <Card className={(classes.paper, classes.card)}>
-      <div>
+      <div className={(classes.repoTextColumn)}>
         <Typography variant="h5">{repoName}</Typography>
         <Typography variant="body2">
           Forks: {forks} Open issues: {openIssues} Watchers: {watchers}
@@ -26,7 +26,7 @@ function RepoCard(props) {
       )}
       {!isFavorite && (
         <StarBorderIcon
-          style={{ fontSize: 60, color: 'gray' }}
+          style={{ fontSize: 60, color: '#d1d1d1' }}
           className={classes.starButton}
           onClick={() => toggleFavoriteStatus(repoUrl)}
         />

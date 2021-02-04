@@ -20,10 +20,16 @@ function OrgCard(props) {
   return (
     <React.Fragment>
       <Card className={(classes.paper, classes.card)}>
-        <Avatar src={avatarSrc} className={classes.avatarLarge} />
-        <div>
-          <Typography variant="h5">{orgName}</Typography>
-          <Typography variant="subtitle1">{orgDescription}</Typography>
+        <div className={classes.avatarColumn}>
+          <Avatar src={avatarSrc} className={classes.avatarLarge} />
+        </div>
+        <div className={classes.textColumn}>
+          <Typography variant="h5" align={'left'}>
+            {orgName}
+          </Typography>
+          <Typography variant="subtitle1" align={'left'}>
+            {orgDescription}
+          </Typography>
         </div>
         <Button variant="contained" color="default" onClick={handleClickOpen}>
           View more
@@ -33,8 +39,12 @@ function OrgCard(props) {
         <div className={classes.modalTitle}>
           <Avatar src={avatarSrc} className={classes.avatarMed} />
           <div className={classes.modalTitleText}>
-            <Typography variant="h4">{orgName}</Typography>
-            <Typography variant="body1">{orgDescription}</Typography>
+            <Typography variant="h4" align={'left'}>
+              {orgName}
+            </Typography>
+            <Typography variant="body1" align={'left'}>
+              {orgDescription}
+            </Typography>
           </div>
           <div className={classes.modalTitleClose}>
             <IconButton onClick={handleClose}>

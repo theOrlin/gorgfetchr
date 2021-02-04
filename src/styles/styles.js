@@ -7,7 +7,7 @@ const styles = (theme) => ({
     fontSize: theme.typography.fontSize
   },
   currentLink: {
-    color: 'salmon'
+    color: '#29abe2'
   },
   drawer: {
     display: 'flex'
@@ -59,6 +59,19 @@ const styles = (theme) => ({
     margin: theme.spacing(1),
     minWidth: 120,
   },
+  textColumn: {
+    flex: 1,
+    paddingLeft: 40
+  },
+  avatarColumn: {
+    padding: '10px 0'
+  },
+  repoTextColumn: {
+    width: 500
+  },
+  itemIcon: {
+    minWidth: 'auto'
+  }
 });
 
 export default styles;
