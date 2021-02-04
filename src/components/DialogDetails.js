@@ -1,37 +1,30 @@
 import { useState, useEffect } from 'react';
+import axios from 'axios';
 import { withStyles } from '@material-ui/core/styles';
 import styles from '../styles/styles';
-import {
-  Avatar,
-  Button,
-  Card,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogContentText,
-  DialogTitle as div,
-  IconButton,
-  Typography
-} from '@material-ui/core';
-import StarIcon from '@material-ui/icons/Star';
-import StarBorderIcon from '@material-ui/icons/StarBorder';
+import { DialogContent } from '@material-ui/core';
 import RepoCard from './RepoCard';
 
 function DialogDetails(props) {
-  const { classes, orgName, orgDescription, avatarSrc } = props;
-  const [ favorite, setFavorite ] = useState(false);
+  const { orgName } = props;
 
-  const toggleFavorite = () => {
-    setFavorite(!favorite);
-  };
+  const [ repos, setRepos ] = useState([]);
+
+  useEffect(() => {
+    axios.get(`https://api.github.com/orgs/${orgName}/repos`).then((result) => setRepos(result.data));
+  }, [orgName]);
 
   return (
     <DialogContent>
-        <RepoCard ></RepoCard>
-        <RepoCard ></RepoCard>
-        <RepoCard ></RepoCard>
-        <RepoCard ></RepoCard>
-        <RepoCard ></RepoCard>
+      {repos.map((repo) => (
+        <RepoCard
+          repoName={repo.name}
+          repoUrl={repo.html_url}
+          forks={repo.forks_count}
+          openIssues={repo.open_issues_count}
+          watchers={repo.watchers_count}
+        />
+      ))}
     </DialogContent>
   );
 }

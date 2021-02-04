@@ -1,24 +1,13 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { withStyles } from '@material-ui/core/styles';
+import OpenInNewIcon from '@material-ui/icons/OpenInNew';
 import styles from '../styles/styles';
-import {
-  Avatar,
-  Button,
-  Card,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogContentText,
-  DialogTitle as div,
-  IconButton,
-  Typography
-} from '@material-ui/core';
+import { Button, Card, Typography } from '@material-ui/core';
 import StarIcon from '@material-ui/icons/Star';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 
-
 function RepoCard(props) {
-  const { classes, orgName, orgDescription, avatarSrc } = props;
+  const { classes, repoName, repoUrl, openIssues, forks, watchers } = props;
   const [ favorite, setFavorite ] = useState(false);
 
   const toggleFavorite = () => {
@@ -29,8 +18,10 @@ function RepoCard(props) {
     <Card className={(classes.paper, classes.card)}>
       <div>
         <Typography>
-          <p>Repository Repository Repository Repository Repository Repository </p>
-          <p>Repo details</p>
+          <p>{repoName}</p>
+          <p>
+            Forks: {forks} Open issues: {openIssues} Watchers: {watchers}
+          </p>
         </Typography>
       </div>
       {favorite && (
@@ -43,7 +34,7 @@ function RepoCard(props) {
           onClick={toggleFavorite}
         />
       )}
-      <Button variant="contained" color="default">
+      <Button startIcon={<OpenInNewIcon />} variant="contained" color="default" href={repoUrl} target="_blank">
         View
       </Button>
     </Card>

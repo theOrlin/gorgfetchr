@@ -12,7 +12,7 @@ ReactDOM.render(
   <React.StrictMode>
     <Router>
       <CssBaseline />
-      <Grid container spacing={5}>
+      <Grid container>
         <Grid item xs={1}>
           <Nav />
         </Grid>

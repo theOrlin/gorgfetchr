@@ -4,13 +4,13 @@ import { useHistory, useLocation } from 'react-router-dom';
 import { Drawer, List, ListItem, ListItemText, Divider } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import styles from '../styles/styles';
+import GitHubIcon from '@material-ui/icons/GitHub';
 
 function Nav(props) {
   const [ selected, setSelected ] = useState('');
   const { classes } = props;
   let history = useHistory();
   let location = useLocation();
-  console.log(classes);
 
   useEffect(
     () => {
@@ -30,7 +30,9 @@ function Nav(props) {
   return (
     <Drawer variant="permanent" className={classes.drawer} classes={{ paper: classes.drawer }}>
       <List disablePadding>
-        <ListItem>Github Fetcher</ListItem>
+        <ListItem>
+          <GitHubIcon /> Github Fetcher
+        </ListItem>
         <Divider />
         <ListItem button className={selected === 'home' ? classes.currentLink : ''} onClick={goHome}>
           <ListItemText>Home</ListItemText>

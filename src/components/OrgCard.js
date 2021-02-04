@@ -1,14 +1,13 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import styles from '../styles/styles';
-import { Avatar, Button, Card, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle as div, IconButton, Typography } from '@material-ui/core';
+import { Avatar, Button, Card, Dialog, IconButton, Typography } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
 import DialogDetails from './DialogDetails';
 
 function OrgCard(props) {
   const { classes, orgName, orgDescription, avatarSrc } = props;
   const [open, setOpen] = useState(false);
-  const [favorite, setFavorite] = useState(false);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -52,7 +51,7 @@ function OrgCard(props) {
             </IconButton>
           </div>
         </div>
-        <DialogDetails></DialogDetails>
+        <DialogDetails orgName={orgName}></DialogDetails>
       </Dialog>
     </>
   );

@@ -46,8 +46,12 @@ const styles = (theme) => ({
   avatarMed: {
     width: 60,
     height: 60
-  }
+  },
+  loadMoreButton: {
+    marginTop: 20,
+    marginBottom: 20
 
+  }
 });
 
 export default styles;
