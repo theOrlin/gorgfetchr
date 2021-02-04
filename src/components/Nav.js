@@ -31,7 +31,7 @@ function Nav(props) {
     <Drawer variant="permanent" className={classes.drawer} classes={{ paper: classes.drawer }}>
       <List disablePadding>
         <ListItem>
-          <GitHubIcon /> Github Fetcher
+          <GitHubIcon className={classes.ghIcon}/> Github Fetcher
         </ListItem>
         <Divider />
         <ListItem button className={selected === 'home' ? classes.currentLink : ''} onClick={goHome}>

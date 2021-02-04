@@ -1,4 +1,4 @@
-import { useState } from 'react';
+// import { useState, useEffect } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import OpenInNewIcon from '@material-ui/icons/OpenInNew';
 import styles from '../styles/styles';
@@ -7,31 +7,28 @@ import StarIcon from '@material-ui/icons/Star';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 
 function RepoCard(props) {
-  const { classes, repoName, repoUrl, openIssues, forks, watchers } = props;
-  const [ favorite, setFavorite ] = useState(false);
-
-  const toggleFavorite = () => {
-    setFavorite(!favorite);
-  };
+  const { classes, repoName, repoUrl, openIssues, forks, watchers, isFavorite, toggleFavoriteStatus } = props;
 
   return (
     <Card className={(classes.paper, classes.card)}>
       <div>
-        <Typography>
-          <p>{repoName}</p>
-          <p>
-            Forks: {forks} Open issues: {openIssues} Watchers: {watchers}
-          </p>
+        <Typography variant="h5">{repoName}</Typography>
+        <Typography variant="body2">
+          Forks: {forks} Open issues: {openIssues} Watchers: {watchers}
         </Typography>
       </div>
-      {favorite && (
-        <StarIcon style={{ fontSize: 60, color: 'gold' }} className={classes.starButton} onClick={toggleFavorite} />
+      {isFavorite && (
+        <StarIcon
+          style={{ fontSize: 60, color: 'gold' }}
+          className={classes.starButton}
+          onClick={() => toggleFavoriteStatus(repoUrl)}
+        />
       )}
-      {!favorite && (
+      {!isFavorite && (
         <StarBorderIcon
           style={{ fontSize: 60, color: 'gray' }}
           className={classes.starButton}
-          onClick={toggleFavorite}
+          onClick={() => toggleFavoriteStatus(repoUrl)}
         />
       )}
       <Button startIcon={<OpenInNewIcon />} variant="contained" color="default" href={repoUrl} target="_blank">

@@ -7,16 +7,17 @@ import { Grid } from '@material-ui/core';
 import Nav from './components/Nav';
 import Home from './components/Home';
 import Favorites from './components/Favorites';
+import './styles/home.css';
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
       <CssBaseline />
       <Grid container>
-        <Grid item xs={1}>
+        <Grid item xs={3} lg={2} xl={1}>
           <Nav />
         </Grid>
-        <Grid item xs={10}>
+        <Grid item xs={8} lg={9} xl={10} className="gridMidCol">
           <Switch>
             <Redirect exact from="/" to="/home" />
             <Route path="/home">

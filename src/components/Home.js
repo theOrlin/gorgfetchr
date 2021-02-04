@@ -17,7 +17,6 @@ function Home(props) {
   }, []);
 
   const loadMore = () => {
-    console.log('Last item:', organizationsList[organizationsList.length - 1].id);
     axios
       .get(`https://api.github.com/organizations?since=${organizationsList[organizationsList.length - 1].id}`)
       .then((result) => setOrganizationsList(organizationsList.concat(result.data)));
@@ -25,9 +24,8 @@ function Home(props) {
 
   return (
     <React.Fragment>
-      <Typography align={'center'}>
-        <h2>Github organizations</h2>
-        <p />
+      <Typography variant="h3" align={'center'}>
+        Github organizations
       </Typography>
       {organizationsList.map((org) => (
         <OrgCard key={org.id} avatarSrc={org.avatar_url} orgDescription={org.description} orgName={org.login} />
