@@ -1,10 +1,9 @@
-// import { useState, useEffect } from 'react';
+import { Button, Card, Typography } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import OpenInNewIcon from '@material-ui/icons/OpenInNew';
-import styles from '../styles/styles';
-import { Button, Card, Typography } from '@material-ui/core';
 import StarIcon from '@material-ui/icons/Star';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
+import styles from '../styles/styles';
 
 function RepoCard(props) {
   const { classes, repoName, repoUrl, openIssues, forks, watchers, isFavorite, toggleFavoriteStatus } = props;

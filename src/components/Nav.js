@@ -3,8 +3,8 @@ import { useState, useEffect } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import { Drawer, List, ListItem, ListItemText, Divider, ListItemIcon } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
-import styles from '../styles/styles';
 import GitHubIcon from '@material-ui/icons/GitHub';
+import styles from '../styles/styles';
 
 function Nav(props) {
   const [ selected, setSelected ] = useState('');

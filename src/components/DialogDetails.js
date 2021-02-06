@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { withStyles } from '@material-ui/core/styles';
-import styles from '../styles/styles';
 import { DialogContent } from '@material-ui/core';
+import { withStyles } from '@material-ui/core/styles';
 import RepoCard from './RepoCard';
+import styles from '../styles/styles';
 
 function DialogDetails(props) {
   const { orgName } = props;

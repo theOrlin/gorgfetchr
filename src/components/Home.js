@@ -4,8 +4,8 @@ import axios from 'axios';
 import { Button, Typography } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import GetAppIcon from '@material-ui/icons/GetApp';
-import styles from '../styles/styles';
 import OrgCard from './OrgCard';
+import styles from '../styles/styles';
 
 
 function Home(props) {
